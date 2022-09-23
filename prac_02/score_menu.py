@@ -1,14 +1,12 @@
 """
-
+Similar to Lecture 2 dothisnow.py, program with main menu.
 """
-
-import random
 
 MENU = "E - Enter score\nP - Print score\nS - Print stars\nQ - Quit"
 
 
 def main():
-    """Program"""
+    """Program with main menu to get a user score and determine result"""
     score = 0
     result = ""
     print(MENU)
@@ -32,7 +30,7 @@ def main():
 
 
 def print_stars(score):
-    """Display name with length of hyphens."""
+    """Display score with length of stars"""
     print('*' * score)
 
 
