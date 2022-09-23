@@ -1,6 +1,5 @@
 """
-CP1404/CP5632 - Practical
-Broken program to determine score status
+Refactored version of broken_score.py
 """
 
 from random import randint
