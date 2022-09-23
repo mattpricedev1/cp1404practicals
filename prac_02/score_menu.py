@@ -13,10 +13,7 @@ def main():
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "E":
-            score = int(input("Enter score: "))
-            while score < 0 or score > 100:
-                print("Invalid score")
-                score = int(input("Enter score: "))
+            score = get_valid_score()
             result = determine_result(score)
         elif choice == "P":
             print(f"{score} is {result}")
@@ -27,6 +24,15 @@ def main():
         print(MENU)
         choice = input(">>> ").upper()
     print("bye")
+
+
+def get_valid_score():
+    """Check if score meets the min/max condition"""
+    score = int(input("Enter score: "))
+    while score < 0 or score > 100:
+        print("Invalid score")
+        score = int(input("Enter score: "))
+    return score
 
 
 def print_stars(score):
