@@ -12,13 +12,18 @@ def main():
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "E":
-            pass
+            for i in range(x, y + 1):
+                if i % 2 == 0:
+                    print(i, end=" ")
         elif choice == "O":
-            pass
+            for i in range(x, y + 1):
+                if i % 2 == 1:
+                    print(i, end=" ")
         elif choice == "S":
-            pass
+            for i in range(x, y + 1):
+                print(i**2, end=" ")
         else:
-            "Invalid choice"
+            print("Invalid choice")
         print(MENU)
         choice = input(">>> ").upper()
     print("See you next time!")
