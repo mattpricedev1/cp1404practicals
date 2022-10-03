@@ -1,9 +1,9 @@
 """
 CP1404/CP5632 - Practical
 Answer the following questions:
-1. When will a ValueError occur?
-2. When will a ZeroDivisionError occur?
-3. Could you change the code to avoid the possibility of a ZeroDivisionError?
+1. When will a ValueError occur? Entering a string such as "blah"
+2. When will a ZeroDivisionError occur? When a number less than or equal to zero is entered.
+3. Could you change the code to avoid the possibility of a ZeroDivisionError? Yes, by using a while loop.
 """
 
 try:
