@@ -1,3 +1,5 @@
+"""Basic list operations & Woefully inadequate security checker"""
+
 numbers = []
 for i in range(0, 5):
     number = int(input("Number: "))
