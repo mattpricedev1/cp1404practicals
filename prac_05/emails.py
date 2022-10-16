@@ -4,6 +4,7 @@ Emails program
 
 
 def main():
+    """Prompt user to enter email and confirm their name"""
     email_to_name = {}
 
     email = input("Email: ")
