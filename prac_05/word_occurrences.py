@@ -9,8 +9,8 @@ user_string = input("Enter a string: ")
 words = user_string.split()  # convert string to list
 
 for word in words:
-    count = word_to_count.get(word, 0)
-    word_to_count[word] = count + 1  # add word and occurrence to dictionary
+    occurrence = word_to_count.get(word, 0)
+    word_to_count[word] = occurrence + 1  # add word and occurrence to dictionary
 
 # display words that occur more than once only once in the list
 words = list(word_to_count.keys())
