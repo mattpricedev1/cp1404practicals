@@ -4,6 +4,9 @@ CSV_FILE = "wimbledon.csv"
 def main():
     records = get_records(CSV_FILE)
     player_to_count, countries = process_records(records)
+    for name, count in player_to_count.items():
+        print(name, count)
+    print(", ".join(country for country in sorted(countries)))
     print(records)
 
 
