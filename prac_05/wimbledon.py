@@ -3,6 +3,8 @@ Wimbledon program
 """
 
 CSV_FILE = "wimbledon.csv"
+COUNTRY_INDEX = 1
+PLAYER_INDEX = 2
 
 
 def main():
@@ -28,11 +30,11 @@ def process_records(records):
     player_to_count = {}
     countries = set()
     for record in records:
-        countries.add(record[1])
+        countries.add(record[COUNTRY_INDEX])
         try:
-            player_to_count[record[2]] += 1
+            player_to_count[record[PLAYER_INDEX]] += 1
         except KeyError:
-            player_to_count[record[2]] = 1
+            player_to_count[record[PLAYER_INDEX]] = 1
     return player_to_count, countries
 
 
