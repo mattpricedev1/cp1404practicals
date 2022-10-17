@@ -1,3 +1,7 @@
+"""
+Wimbledon program
+"""
+
 CSV_FILE = "wimbledon.csv"
 
 
@@ -30,9 +34,11 @@ def process_records(records):
 
 
 def display_records(player_to_count, countries):
+    """Display player names and victories with countries in alphabetical order"""
     print("Wimbledon Champions:")
     for name, count in player_to_count.items():
         print(name, count)
+    print("\nThese 12 countries have won Wimbledon:")
     print(", ".join(country for country in sorted(countries)))
 
 
