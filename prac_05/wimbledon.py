@@ -6,12 +6,14 @@ CSV_FILE = "wimbledon.csv"
 
 
 def main():
+    """Get csv file as input and process records for output"""
     records = get_records(CSV_FILE)
     player_to_count, countries = process_records(records)
     display_records(player_to_count, countries)
 
 
 def get_records(csv_file):
+    """Retrieve records from csv file and append to list"""
     records = []
     with open(csv_file, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()  # skip first line
@@ -22,6 +24,7 @@ def get_records(csv_file):
 
 
 def process_records(records):
+    """Add player and count to dictionary and country to set list"""
     player_to_count = {}
     countries = set()
     for record in records:
