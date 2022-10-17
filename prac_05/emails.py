@@ -1,5 +1,5 @@
 """
-Emails program
+Emails program - add/extract name from email and confirm or rename before adding to dictionary
 """
 
 
