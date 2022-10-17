@@ -4,10 +4,7 @@ CSV_FILE = "wimbledon.csv"
 def main():
     records = get_records(CSV_FILE)
     player_to_count, countries = process_records(records)
-    for name, count in player_to_count.items():
-        print(name, count)
-    print(", ".join(country for country in sorted(countries)))
-    print(records)
+    display_records(player_to_count, countries)
 
 
 def get_records(csv_file):
@@ -30,6 +27,13 @@ def process_records(records):
         except KeyError:
             player_to_count[record[2]] = 1
     return player_to_count, countries
+
+
+def display_records(player_to_count, countries):
+    print("Wimbledon Champions:")
+    for name, count in player_to_count.items():
+        print(name, count)
+    print(", ".join(country for country in sorted(countries)))
 
 
 main()
