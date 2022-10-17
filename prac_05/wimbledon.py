@@ -20,7 +20,7 @@ def get_records(csv_file):
     with open(csv_file, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()  # skip first line
         for line in in_file:
-            attribute = line.strip().split(",")  # remove commas and separate attributes
+            attribute = line.strip().split(",")  # remove commas and separate each attribute
             records.append(attribute)
         return records
 
@@ -30,7 +30,7 @@ def process_records(records):
     player_to_count = {}
     countries = set()
     for record in records:
-        countries.add(record[COUNTRY_INDEX])
+        countries.add(record[COUNTRY_INDEX])  # add new country to set list
         try:
             player_to_count[record[PLAYER_INDEX]] += 1
         except KeyError:
