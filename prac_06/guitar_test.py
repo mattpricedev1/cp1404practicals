@@ -1,3 +1,7 @@
+"""
+Guitar tests using Guitar object
+"""
+
 from guitar import Guitar
 
 

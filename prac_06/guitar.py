@@ -1,3 +1,7 @@
+"""
+Guitar class
+"""
+
 import datetime
 
 TODAY = datetime.date.today()  # get today's date
