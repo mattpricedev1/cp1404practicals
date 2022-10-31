@@ -1,5 +1,12 @@
+import datetime
+
+TODAY = datetime.date.today()
+VINTAGE_AGE = 50
+
+
 class Guitar:
     """Guitar class"""
+
     def __init__(self, name="", year=0, cost=0.0):
         self.name = name
         self.year = year
@@ -7,13 +14,12 @@ class Guitar:
 
     def __str__(self):
         """Return string formatting"""
-        f"{self.name} ({self.year}) : ${self.cost}"
+        return f"{self.name} ({self.year}) : ${self.cost}"
 
     def get_age(self):
-        age = 2022 - self.year
-        return age
+        year = TODAY.strftime("%Y")
+        year = int(year)
+        return year - self.year
 
     def is_vintage(self):
-        return Guitar.is_vintage(self) >= 50
-
-
+        return self.is_vintage(self) >= VINTAGE_AGE
