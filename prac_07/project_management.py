@@ -4,6 +4,7 @@ Time estimate: 3 hours
 Actual time:
 """
 
+from datetime import datetime
 from project import Project
 
 MENU = "- (L)oad projects\n" \
@@ -33,9 +34,9 @@ def main():
         elif choice == "F":
             pass
         elif choice == "A":
-            pass
+            add_projects(projects)
         elif choice == "U":
-            pass
+            update_projects(projects)
         else:
             print("Invalid menu choice")
         print(MENU)
@@ -50,7 +51,8 @@ def load_projects(filename):
         in_file.readline()  # skip header
         for line in in_file:
             parts = line.strip().split("\t")
-            project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4]))
+            date = datetime.strptime(parts[1], "%d/%m/%Y").date()
+            project = Project(parts[0], date, int(parts[2]), float(parts[3]), int(parts[4]))
             projects.append(project)
         return projects
 
@@ -76,6 +78,35 @@ def display_projects(projects):
     complete_projects.sort()
     for project in complete_projects:
         print(" ", project)
+
+
+def add_projects(projects):
+    print("Let's add a new project")
+    name = input("Name: ")
+    start_date = datetime.strptime(input("Start date: (d/m/yyyy): "), "%d/%m/%Y").date()
+    priority = int(input("Priority: "))
+    cost_estimate = float(input("Cost estimate: $"))
+    percent_complete = int(input("Percent complete: "))
+    new_project = Project(name, start_date, priority, cost_estimate, percent_complete)
+    projects.append(new_project)
+
+
+def update_projects(projects):
+    for i, project in enumerate(projects):
+        print(i, project)
+    index = int(input("Project choice: "))
+    project = projects[index]
+    print(project)
+    try:
+        percent_complete = int(input("New Percentage: "))
+        project.completion_percentage = percent_complete
+    except ValueError:
+        pass
+    try:
+        priority = int(input("New Priority: "))
+        project.priority = priority
+    except ValueError:
+        pass
 
 
 if __name__ == "__main__":
