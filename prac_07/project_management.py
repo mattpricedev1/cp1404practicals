@@ -32,7 +32,7 @@ def main():
         elif choice == "D":
             display_projects(projects)
         elif choice == "F":
-            pass
+            filter_projects(projects)
         elif choice == "A":
             add_projects(projects)
         elif choice == "U":
@@ -78,6 +78,15 @@ def display_projects(projects):
     complete_projects.sort()
     for project in complete_projects:
         print(" ", project)
+
+
+def filter_projects(projects):
+    date_string = input("Date (d/m/yyyy)")
+    date = datetime.strptime(date_string, "%d/%m%Y").date()
+    print(date)
+    for project in projects:
+        if project[1] > date:
+            print(project)
 
 
 def add_projects(projects):
