@@ -24,11 +24,11 @@ def main():
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "L":
-            # TODO: Add filename input
-            projects = load_projects(FILENAME)
+            filename = input("Enter filename: ")
+            projects = load_projects(filename)
         elif choice == "S":
-            # TODO: Add filename input
-            save_projects(projects, FILENAME)
+            filename = input("Enter filename: ")
+            save_projects(filename, projects)
         elif choice == "D":
             display_projects(projects)
         elif choice == "F":
@@ -57,13 +57,13 @@ def load_projects(filename):
         return projects
 
 
-def save_projects(projects, filename):
+def save_projects(filename, projects):
     """Open and write to a text file"""
     with open(filename, "w") as out_file:
         print(HEADER, file=out_file)
         for project in projects:
-            print(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t"
-                  f"{project.completion_percentage}", file=out_file)
+            print(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}"
+                  f"\t{project.completion_percentage}", file=out_file)
 
 
 def display_projects(projects):
@@ -81,7 +81,7 @@ def display_projects(projects):
 
 
 def filter_projects(projects):
-    date_string = input("Date (d/m/yyyy): ")
+    date_string = input("Show projects that start after date (d/m/yyyy): ")
     date = datetime.strptime(date_string, "%d/%m/%Y").date()
     for project in projects:
         if project.start_date > date:
