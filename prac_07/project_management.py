@@ -1,7 +1,7 @@
 """
 Project Management Program
 Time estimate: 3 hours
-Actual time:
+Actual time: 4 hours
 """
 
 from datetime import datetime
@@ -19,6 +19,7 @@ HEADER = "Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage"
 
 
 def main():
+    """Display menu with choices"""
     projects = []
     print(MENU)
     choice = input(">>> ").upper()
@@ -81,6 +82,7 @@ def display_projects(projects):
 
 
 def filter_projects(projects):
+    """Filter projects based on date"""
     date_string = input("Show projects that start after date (d/m/yyyy): ")
     date = datetime.strptime(date_string, "%d/%m/%Y").date()
     for project in projects:
@@ -89,6 +91,7 @@ def filter_projects(projects):
 
 
 def add_projects(projects):
+    """Add new projects to projects list using Project object"""
     print("Let's add a new project")
     name = input("Name: ")
     start_date = datetime.strptime(input("Start date: (d/m/yyyy): "), "%d/%m/%Y").date()
@@ -100,6 +103,7 @@ def add_projects(projects):
 
 
 def update_projects(projects):
+    """Update completion percentage and priority for a chosen Project"""
     for i, project in enumerate(projects):
         print(i, project)
     index = int(input("Project choice: "))
