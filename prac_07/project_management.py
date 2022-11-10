@@ -81,11 +81,10 @@ def display_projects(projects):
 
 
 def filter_projects(projects):
-    date_string = input("Date (d/m/yyyy)")
-    date = datetime.strptime(date_string, "%d/%m%Y").date()
-    print(date)
+    date_string = input("Date (d/m/yyyy): ")
+    date = datetime.strptime(date_string, "%d/%m/%Y").date()
     for project in projects:
-        if project[1] > date:
+        if project.start_date > date:
             print(project)
 
 
