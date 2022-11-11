@@ -1,17 +1,18 @@
-# cp1404practicals repo
+# cp1404practicals
 
-## About
+This repository contains the practical activities for each week of the subject CP1404 at James Cook University.
 
-This repo contains the practical activities for each week of CP1404
-My name is Matthew Price, and I'm a year 1 IT student studying at JCU in Townsville.
+## About Me
 
-The three main lessons I have learned about "clean code" in this subject are:
+My name is Matthew Price, and I am a first year IT student studying at James Cook University in Townsville, QLD.
+
+The three main lessons I have learned about "clean code" in the subject so far are:
 
 - (SRP) better known as Single Responsibility Principle
 - If code is repeated, perhaps it can be made into a function
 - Follow PEP8 conventions
 
-### Links
+## Links
 
 - https://github.com/CP1404/Practicals
 - https://github.com/CP1404/Starter/wiki/Programming-Patterns
