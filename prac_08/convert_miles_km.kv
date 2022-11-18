@@ -5,6 +5,7 @@ BoxLayout:
         TextInput:
             id: input_miles
             text: '34'
+            on_text: app.handle_conversion()
         BoxLayout:
             orientation: 'vertical'
             size_hint_x: 0.2
@@ -14,9 +15,9 @@ BoxLayout:
             Button:
                 text: 'Down'
                 on_press: app.handle_increment(-1)
-    Button:
-        text: 'Convert m to km'
-        on_press: app.handle_conversion()
+#    Button:
+#        text: 'Convert m to km'
+#        on_press: app.handle_conversion()
     Label:
         id: output_result
         text: '54.717'
