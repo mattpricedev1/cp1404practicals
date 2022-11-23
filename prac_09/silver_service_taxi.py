@@ -3,7 +3,7 @@ from prac_09.taxi import Taxi
 
 class SilverServiceTaxi(Taxi):
     """SilverServiceTaxi class."""
-    flagfall = 4.5
+    flagfall = 4.50
 
     def __init__(self, name, fuel, fanciness):
         """Initial SilverServiceTaxi variables."""
