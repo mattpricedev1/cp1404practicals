@@ -31,21 +31,20 @@ def main():
     choice = input(">>> ")
     while choice != "q":
         if choice == "c":
-            choose_taxi(taxis)
+            print("Taxis available:")
+            display_taxis(taxis)
         elif choice == "d":
             pass
         else:
             print("Invalid option")
-    for taxi in TAXIS:
+    for taxi in taxis:
         print(taxi)
 
 
-def choose_taxi(taxis):
-    """Choose a taxi"""
-    print("Taxis available:")
+def display_taxis(taxis):
     for i, taxi in enumerate(taxis):
-        print(i, "-", taxi)
-    index = input("Choose taxi: ")
+        print(f"{i} - {taxi}")
+
 
 if __name__ == "__main__":
     main()
