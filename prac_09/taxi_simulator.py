@@ -33,8 +33,18 @@ def main():
         if choice == "c":
             print("Taxis available:")
             display_taxis(taxis)
+            taxi_choice = int(input("Choose taxi: "))
+            try:
+                current_taxi = taxis[taxi_choice]
+            except IndexError:
+                print("Invalid taxi choice: ")
         elif choice == "d":
-            pass
+            if current_taxi:
+                current_taxi.start_fare()
+                distance_to_drive = float(input("Drive how far? "))
+                current_taxi.drive(distance_to_drive)
+                trip_cost = current_taxi.get_fare()
+                print(f"Your {current_taxi.name} trip cost you ${trip_cost:.2f}")
         else:
             print("Invalid option")
     for taxi in taxis:
