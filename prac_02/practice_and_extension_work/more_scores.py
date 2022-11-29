@@ -6,10 +6,12 @@ from random import randint
 def main():
     """Get number of scores and generate random scores in range of n."""
     number_of_scores = int(input("How many scores? "))
+    out_file = open("results.txt", "w")
     for number_of_scores in range(number_of_scores):
         score = randint(0, 100)
         result = determine_result(score)
-        print(result)
+        print(result, file=out_file)
+    out_file.close()
 
 
 def determine_result(score):
