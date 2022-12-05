@@ -6,7 +6,8 @@ from operator import itemgetter
 
 CSV_FILE = "wimbledon.csv"
 MENU = "(D) - Display Wimbledon champions and countries that have won Wimbledon\n" \
-       "(S) - Sort the players by who has won the most championships"
+       "(S) - Sort the players by who has won the most championships\n" \
+       "(L) - Display longest game played"
 COUNTRY_INDEX = 1
 PLAYER_INDEX = 2
 
@@ -22,6 +23,8 @@ def main():
             display_records(player_to_count, countries)
         elif choice == "S":
             sort_players(player_to_count)
+        elif choice == "L":
+            process_game_records(records)
         else:
             print("Invalid choice")
         print(MENU)
@@ -67,6 +70,13 @@ def sort_players(player_to_count):
     sorted_players = sorted(player_to_count.items(), key=itemgetter(1), reverse=True)
     for player in sorted_players:
         print(player[0], player[1])
+
+
+def process_game_records(records):
+    # create list comprehension of all games played
+    games = [record[5:] for record in records]
+    for i, game in enumerate(games):
+        print(f"Game {i + 1:<2} ({records[i][2]} vs {records[i][4]}) -\t{game}")
 
 
 main()
