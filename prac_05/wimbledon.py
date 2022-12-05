@@ -3,6 +3,7 @@ Wimbledon program
 """
 
 CSV_FILE = "wimbledon.csv"
+MENU = "(S) - Sort the players by who has won the most championships"
 COUNTRY_INDEX = 1
 PLAYER_INDEX = 2
 
@@ -11,7 +12,16 @@ def main():
     """Get csv file as input and process records for output"""
     records = get_records(CSV_FILE)
     player_to_count, countries = process_records(records)
-    display_records(player_to_count, countries)
+    print(MENU)
+    choice = input(">>> ").upper()
+    while choice != "Q":
+        if choice == "D":
+            display_records(player_to_count, countries)
+        else:
+            print("Invalid choice")
+        print(MENU)
+        choice = input(">>> ").upper()
+    print("Thank you for using the Wimbledon program")
 
 
 def get_records(csv_file):
