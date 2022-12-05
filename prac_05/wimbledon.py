@@ -2,8 +2,11 @@
 Wimbledon program
 """
 
+from operator import itemgetter
+
 CSV_FILE = "wimbledon.csv"
-MENU = "(S) - Sort the players by who has won the most championships"
+MENU = "(D) - Display Wimbledon champions and countries that have won Wimbledon\n" \
+       "(S) - Sort the players by who has won the most championships"
 COUNTRY_INDEX = 1
 PLAYER_INDEX = 2
 
@@ -17,6 +20,8 @@ def main():
     while choice != "Q":
         if choice == "D":
             display_records(player_to_count, countries)
+        elif choice == "S":
+            sort_players(player_to_count)
         else:
             print("Invalid choice")
         print(MENU)
@@ -55,6 +60,13 @@ def display_records(player_to_count, countries):
         print(name, count)
     print(f"\nThese {len(countries)} countries have won Wimbledon:")
     print(", ".join(country for country in sorted(countries)))
+
+
+def sort_players(player_to_count):
+    """Sort players from most to least championships won."""
+    sorted_players = sorted(player_to_count.items(), key=itemgetter(1), reverse=True)
+    for player in sorted_players:
+        print(player[0], player[1])
 
 
 main()
